@@ -59,14 +59,6 @@ texture_region_size = Vector2i(80, 80)
 tile_size = Vector2i(80, 80)
 sources/0 = SubResource("TileSetAtlasSource_o60wy")
 
-[sub_resource type="Curve" id="Curve_e054x"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.472527), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_0id0j"]
-offsets = PackedFloat32Array(0, 0.537415, 1)
-colors = PackedColorArray(1, 0.713726, 0, 1, 1, 0.47451, 0, 1, 1, 0.329412, 0, 1)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwa80"]
 texture = ExtResource("4_p5ud1")
 texture_region_size = Vector2i(80, 80)
@@ -150,6 +142,14 @@ texture_region_size = Vector2i(80, 80)
 tile_size = Vector2i(80, 80)
 sources/0 = SubResource("TileSetAtlasSource_iwa80")
 
+[sub_resource type="Curve" id="Curve_e054x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.472527), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0id0j"]
+offsets = PackedFloat32Array(0, 0.537415, 1)
+colors = PackedColorArray(1, 0.713726, 0, 1, 1, 0.47451, 0, 1, 1, 0.329412, 0, 1)
+
 [node name="Night" type="Node2D"]
 
 [node name="LevelGen" type="TileMap" parent="."]
@@ -157,7 +157,13 @@ tile_set = SubResource("TileSet_ur82v")
 format = 2
 script = ExtResource("3_uj3uo")
 
+[node name="FloorTiles" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1rhgj")
+format = 2
+script = ExtResource("5_nkpb2")
+
 [node name="Fire" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(40, 19)
 amount = 4
 direction = Vector2(1, 1)
@@ -169,6 +175,7 @@ scale_amount_curve = SubResource("Curve_e054x")
 color_ramp = SubResource("Gradient_0id0j")
 
 [node name="Fire3" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(1240, 662)
 amount = 4
 direction = Vector2(1, 1)
@@ -180,6 +187,7 @@ scale_amount_curve = SubResource("Curve_e054x")
 color_ramp = SubResource("Gradient_0id0j")
 
 [node name="Fire4" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(40, 664)
 amount = 4
 direction = Vector2(1, 1)
@@ -191,6 +199,7 @@ scale_amount_curve = SubResource("Curve_e054x")
 color_ramp = SubResource("Gradient_0id0j")
 
 [node name="Fire2" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(1240, 22)
 amount = 4
 direction = Vector2(1, 1)
@@ -201,12 +210,6 @@ scale_amount_max = 30.0
 scale_amount_curve = SubResource("Curve_e054x")
 color_ramp = SubResource("Gradient_0id0j")
 
-[node name="FloorTiles" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_1rhgj")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 1, 15, 0, 1, 524303, 0, 1, 524288, 0, 1)
-script = ExtResource("5_nkpb2")
-
 [node name="Enemy" type="Sprite2D" parent="."]
 position = Vector2(635, 326)
 
@@ -216,3 +219,4 @@ texture = ExtResource("1_fpffd")
 script = ExtResource("2_olgg7")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false

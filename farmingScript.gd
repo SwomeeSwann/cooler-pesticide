@@ -1,6 +1,6 @@
 extends TileMap
 
-
+@onready var parentNode = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +13,6 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		var parentNode = get_node("/root/Daytime")
 		if event.button_index == MOUSE_BUTTON_LEFT and get_parent() == parentNode:
 			var tilePos = local_to_map(event.position)
 			if not tilePos.y == 0:
