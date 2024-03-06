@@ -14,7 +14,7 @@ func _process(delta):
 			if not position.y < 100:
 				position.y -= 300 * delta
 		else:
-			var floorData = get_node("/root/Night/FloorTiles")
+			var floorData = get_node("/root/Night/TileGen")
 			var mapPos = floorData.local_to_map(Vector2(position.x, position.y - 20))
 			if not floorData.get_cell_atlas_coords(0, mapPos, false) == Vector2i(2,1):
 				position.y -= 300 * delta
@@ -22,7 +22,7 @@ func _process(delta):
 		if get_tree().current_scene == daytime:
 				position.x -= 300 * delta
 		else:
-			var floorData = get_node("/root/Night/FloorTiles")
+			var floorData = get_node("/root/Night/TileGen")
 			var mapPos = floorData.local_to_map(Vector2(position.x - 15, position.y))
 			if not floorData.get_cell_atlas_coords(0, mapPos, false) == Vector2i(2,1):
 				position.x -= 300 * delta
@@ -30,7 +30,7 @@ func _process(delta):
 		if get_tree().current_scene == daytime:
 				position.y += 300 * delta
 		else:
-			var floorData = get_node("/root/Night/FloorTiles")
+			var floorData = get_node("/root/Night/TileGen")
 			var mapPos = floorData.local_to_map(Vector2(position.x, position.y + 20))
 			if not floorData.get_cell_atlas_coords(0, mapPos, false) == Vector2i(2,1):
 				position.y += 300 * delta
@@ -38,14 +38,14 @@ func _process(delta):
 		if get_tree().current_scene == daytime:
 				position.x += 300 * delta
 		else:
-			var floorData = get_node("/root/Night/FloorTiles")
+			var floorData = get_node("/root/Night/TileGen")
 			var mapPos = floorData.local_to_map(Vector2(position.x + 15, position.y))
 			if not floorData.get_cell_atlas_coords(0, mapPos, false) == Vector2i(2,1):
 				position.x += 300 * delta
 	
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not get_parent() == daytime:
-		var floorData = get_node("/root/Night/FloorTiles")
-		position = floorData.map_to_local(Vector2(100,100))
+		var floorData = get_node("/root/Night/TileGen")
+		print(position)
 
 
